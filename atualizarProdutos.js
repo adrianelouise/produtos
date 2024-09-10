@@ -3,7 +3,6 @@ const { produtos } = require('./data');
 const atualizarProdutos = (req, res) => {
     const { id } = req.params;
     const novoNome = req.body.nome;
-    const novoProduto = req.body.produto;
     const novoCategoria = req.body.categoria;
     const novoPreco = req.body.preco;
     const novoEstoque = req.body.estoque;
@@ -15,7 +14,6 @@ const atualizarProdutos = (req, res) => {
     }
 
     produtos.nome = novoNome;
-    produto.produto = novoProduto;
     produto.categoria = novoCategoria;
     produto.preco = novoPreco;
     produto.estoque = novoEstoque;

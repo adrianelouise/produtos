@@ -2,7 +2,7 @@
 
  function criarProdutos(req, res){
     const novoProduto = {
-        id: produtos.lenght + 1,
+        id: produtos.length + 1,
         nome: req.body.nome,
         categoria: req.body.categoria,
         preço: req.body.preço,

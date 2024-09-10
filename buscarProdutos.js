@@ -1,13 +1,22 @@
- const { produtos } = require('./data');
+// buscarProdutos.js
+const { produtos } = require('./data');
 
- function buscarProdutos(req,res) {
+function buscarProdutos(req, res) {
     const { categoria } = req.query;
-    const resultados = produtos.filter(produto => produto.categoria.toLowerCase().includes(categoria.toLowerCase()));
 
-    if (resultados.lenght === 0){
-        return res. status(404).send({ message: 'Nenhum produto foi encontrado'});
+    if (!categoria) {
+        return res.status(400).send({ message: 'Parâmetro de categoria é obrigatório' });
     }
-    res.status(202).send(resultados);
-};
+
+    const resultados = produtos.filter(produto => 
+        produto.categoria.toLowerCase() == categoria.toLowerCase()
+    );
+
+    if (resultados.length === 0) {
+        return res.status(404).send({ message: 'Nenhum produto foi encontrado' });
+    }
+
+    res.status(200).send(resultados);
+}
 
 module.exports = buscarProdutos;
